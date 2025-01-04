@@ -43,3 +43,8 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [terminal.shell]
 program = "/bin/zsh"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Control|Shift"
+action = "SpawnNewInstance"
