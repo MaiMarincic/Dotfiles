@@ -24,6 +24,7 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 # Keybindings
 bindkey '^p' history-search-backward
