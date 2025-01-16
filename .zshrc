@@ -14,7 +14,6 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
@@ -24,12 +23,12 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
+zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 # Keybindings
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-bindkey '^[w' kill-region
 
 # History
 HISTSIZE=5000
@@ -53,8 +52,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ls='ls --color'
-alias vim='nvim'
-alias c='clear'
+alias ll='ls -a --color'
 
 # Shell integrations
 eval "$(fzf --zsh)"
