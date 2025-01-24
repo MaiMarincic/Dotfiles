@@ -14,6 +14,8 @@ vim.api.nvim_set_keymap("v", "d", '"dd', { noremap = true })
 vim.api.nvim_set_keymap("n", "c", '"cc', { noremap = true })
 vim.api.nvim_set_keymap("v", "c", '"cc', { noremap = true })
 
+vim.api.nvim_set_keymap("v", "<leader>p", '"_dP', { noremap = true })
+
 vim.api.nvim_set_keymap("n", "<C-S-j>", ":cnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-S-k>", ":cprev<CR>", { noremap = true, silent = true })
 
