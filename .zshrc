@@ -57,3 +57,6 @@ alias ll='ls -a --color'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+export PATH="$HOME/Scripts:$PATH"
+alias vs="$HOME/Scripts/setup_venv.sh"
