@@ -30,9 +30,11 @@ require("lazy").setup({
 
 	require("plugins/gitsigns"),
 
-	require("plugins/which-key"),
+	require("plugins/mini"),
 
 	require("plugins/telescope"),
+
+	require("plugins/which-key"),
 
 	require("plugins/lspconfig"),
 
@@ -43,8 +45,6 @@ require("lazy").setup({
 	require("plugins/catppuccin"),
 
 	require("plugins/todo-comments"),
-
-	require("plugins/mini"),
 
 	require("plugins/treesitter"),
 
@@ -57,6 +57,12 @@ require("lazy").setup({
 	require("plugins/colors"),
 
 	require("plugins/quickfix"),
+
+	require("plugins/lazydocker"),
+
+	require("plugins/lazygit"),
+
+	require("plugins/render-markdown"),
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
