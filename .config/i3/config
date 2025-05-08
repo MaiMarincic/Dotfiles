@@ -9,7 +9,7 @@ set $smod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
+default_border pixel 2
 default_floating_border normal
 
 # Hide borders
@@ -24,7 +24,7 @@ bindsym $mod+n border normal
 # is used in the bar {} block below.
 #font pango:DejaVuSansMono Nerd Font 10
 #font pango:DejaVuSansM Nerd Font Mono 10
-#font pango:JetBrains Mono Nerd 12
+font pango:JetBrainsMono Nerd Font 9
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
@@ -416,53 +416,55 @@ bar {
     i3bar_command i3bar
     status_command i3status
     position bottom
-
-    # Uncomment the following lines and set your primary output first. Example: 'xrandr --output eDP1 --primary'
-    # tray_output primary
-    # tray_output eDP1
-
-    # Mouse bindings (if any) for the bar
+    
+    # System tray configuration
+    tray_output primary
+    tray_padding 3
+    
+    # Mouse bindings
     bindsym button4 nop
     bindsym button5 nop
-
-    # Font configuration (uncomment and adjust if needed)
-    # font pango:URWGothic-Book 11
-
+    
+    # High-resolution font configuration
+    font pango:JetBrainsMono Nerd Font 10
+    
+    # Bar appearance
     strip_workspace_numbers yes
-
+    height 26
+    
+    # Padding and spacing
+    separator_symbol " │ "
+    
+    # Bar colors
     colors {
         background         $base
-        statusline         $flamingo
-        separator          $base
-        focused_workspace  $base $sapphire $base        
-        active_workspace   $base $rosewater $crust
-        inactive_workspace $base $base $rosewater
-        urgent_workspace   $base $text $red
-        binding_mode       $base $text $pink
+        statusline         $text
+        separator          $overlay1
+        
+        # Workspace colors (high contrast, crisp edges)
+        focused_workspace  $lavender $lavender $crust
+        active_workspace   $blue     $blue     $crust
+        inactive_workspace $surface1 $surface1 $text
+        urgent_workspace   $peach    $peach    $crust
+        binding_mode       $pink     $pink     $crust
     }
 }
 
-# hide/unhide i3status bar
+# Bar visibility toggle
 bindsym $mod+m bar mode toggle
 
-# Theme colors [Manjaro i3 Default]
-# class                   border  backgr. text    indic.   child_border
-#  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-#  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-#  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-#  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-#  client.placeholder      #000000 #0c0c0c #ffffff #000000 
-#  client.background       #2B2C2B
-
-
+# Window decoration colors (Catppuccin - higher contrast)
 # target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $rosewater $lavender
-client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-client.urgent            $peach    $base $peach $overlay0  $peach
+client.focused           $lavender $base $text  $sapphire  $lavender
+client.focused_inactive  $overlay0 $base $text  $surface1  $overlay0
+client.unfocused         $surface0 $base $text  $surface1  $surface0
+client.urgent            $peach    $base $peach $red       $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
+# Add this to your i3 config to improve DPI scaling
+# Uncomment and adjust the value based on your display
+# exec --no-startup-id xrandr --dpi 144
 
 #############################
 ### settings for i3-gaps: ###
@@ -479,10 +481,6 @@ gaps outer -1
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps off
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders off
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
