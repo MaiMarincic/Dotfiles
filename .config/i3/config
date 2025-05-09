@@ -520,6 +520,6 @@ mode "$mode_gaps_outer" {
 }
 
 exec --no-startup-id xrandr --output DP-2 --rotate left
-exec --no-startup id feh --bg-fill Pictures/island.jpg
+exec --no-startup-id feh --bg-fill Pictures/island.jpg
 
 # exec_always --no-startup-id picom
